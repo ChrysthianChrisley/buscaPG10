@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Pesquisar Processos (PG-10)",
+  "version": "2.0",
+  "description": "Busca processos e relatos selecionando o texto.",
+  "permissions": ["contextMenus", "scripting", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
