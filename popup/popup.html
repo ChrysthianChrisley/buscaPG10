@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisar PG-10</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img src="../icons/icon-48.png" alt="PG-10 Logo" class="brand-icon">
+        <div class="brand-info">
+          <h1 class="brand-title">Busca PG-10</h1>
+          <span class="brand-badge">v2.1</span>
+        </div>
+      </div>
+      <button id="btn-toggle-settings" class="icon-button" title="Configurações" aria-label="Configurações">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Settings Panel (Collapsible) -->
+    <section id="settings-panel" class="settings-panel hidden">
+      <div class="settings-header">
+        <h2>Configurações do Servidor</h2>
+        <button id="btn-close-settings" class="close-btn" title="Fechar">&times;</button>
+      </div>
+      <div class="form-group">
+        <label for="script-url-input">URL do Google Apps Script:</label>
+        <textarea id="script-url-input" rows="3" placeholder="https://script.google.com/macros/s/.../exec"></textarea>
+        <p class="input-hint">Endpoint do Web App vinculado à planilha PG-10.</p>
+      </div>
+      <div class="settings-actions">
+        <button id="btn-test-conn" class="btn btn-secondary">Testar Conexão</button>
+        <button id="btn-reset-url" class="btn btn-ghost">Padrão</button>
+        <button id="btn-save-settings" class="btn btn-primary">Salvar</button>
+      </div>
+      <div id="settings-status" class="status-msg hidden"></div>
+    </section>
+
+    <!-- Search Section -->
+    <main class="main-content">
+      <form id="search-form" class="search-form">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Digite processo ou origem..." 
+            autocomplete="off" 
+            autofocus
+          >
+          <button type="button" id="btn-clear-input" class="clear-input-btn hidden" title="Limpar campo">&times;</button>
+        </div>
+        <button type="submit" id="btn-search" class="btn btn-primary btn-search">
+          <span class="btn-text">Pesquisar</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+
+      <!-- Search Result Section -->
+      <section id="result-card" class="result-card hidden">
+        <div class="result-header">
+          <span class="result-badge" id="result-badge">Resultado</span>
+          <span class="query-preview" id="query-preview"></span>
+        </div>
+        <div class="result-body">
+          <textarea id="result-text" readonly rows="3"></textarea>
+        </div>
+        <div class="result-actions">
+          <button id="btn-copy-result" class="btn btn-copy" title="Copiar para área de transferência">
+            <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-text">Copiar</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- History Section -->
+      <section class="history-section">
+        <div class="history-header">
+          <span class="history-title">Buscas Recentes</span>
+          <button id="btn-clear-history" class="btn-link" title="Limpar histórico">Limpar</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="history-empty">Nenhuma busca recente.</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-tip">
+        <span>💡 Dica:</span> Selecione qualquer texto em uma página, clique com o botão direito e escolha <strong>"Pesquisar PG-10"</strong>.
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

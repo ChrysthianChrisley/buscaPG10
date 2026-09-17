@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Teste - Pesquisar PG-10</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: rgba(255, 255, 255, 0.1);
+      --accent: #0284c7;
+      --accent-light: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card h2 {
+      font-size: 16px;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+      padding-left: 20px;
+    }
+
+    .step-list li strong {
+      color: var(--text);
+    }
+
+    .sample-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    .highlight-select {
+      background: rgba(56, 189, 248, 0.25);
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      cursor: text;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--accent-light);
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    td {
+      color: var(--text-muted);
+    }
+
+    td code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .input-test-area {
+      width: 100%;
+      height: 80px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      font-family: inherit;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="icons/icon-48.png" alt="PG-10 Logo" class="logo">
+      <div>
+        <h1>Página de Teste - Pesquisar PG-10 <span class="badge">v2.1</span></h1>
+        <p class="subtitle">Use esta página para testar a busca por menu de contexto e pelo popup da barra de ferramentas.</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>🚀 1. Como testar via Menu de Contexto (Botão Direito)</h2>
+      <ol class="step-list">
+        <li>Selecione qualquer termo ou número de processo nos exemplos abaixo com o mouse.</li>
+        <li>Clique com o <strong>botão direito</strong> na seleção.</li>
+        <li>Clique em <strong>"Pesquisar PG-10"</strong>.</li>
+        <li>Veja a notificação instantânea de carregamento e o modal flutuante moderno com o botão <strong>"Copiar"</strong>!</li>
+      </ol>
+
+      <div class="sample-box">
+        <p><strong>Exemplo 1:</strong> Selecione este texto de teste: <span class="highlight-select">SEI 00123.000456/2024-78</span> e clique com o botão direito para buscar o relato na planilha.</p>
+        <br>
+        <p><strong>Exemplo 2:</strong> Ou selecione o nome de uma origem: <span class="highlight-select">GERENCIA-OPERACIONAL</span> para buscar o respectivo processo.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🔍 2. Tabela de Exemplos para Teste Rápido</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Origem / Descrição</th>
+            <th>Processo (Coluna A)</th>
+            <th>Ação Recomendada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GERAL-ADMINISTRATIVO</td>
+            <td><code>00010.001234/2024-11</code></td>
+            <td>Selecione o processo para ver o relato</td>
+          </tr>
+          <tr>
+            <td>AUDITORIA-FISCAL</td>
+            <td><code>00010.009876/2024-22</code></td>
+            <td>Selecione o setor para ver o processo</td>
+          </tr>
+          <tr>
+            <td>SETOR-FINANCEIRO-PG10</td>
+            <td><code>00010.005544/2024-33</code></td>
+            <td>Teste no Popup da extensão</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🧩 3. Como testar via Popup da Barra de Ferramentas</h2>
+      <ol class="step-list">
+        <li>Clique no ícone da extensão <strong>Busca PG-10</strong> no canto superior direito do navegador.</li>
+        <li>Digite ou cole o número do processo ou nome da origem no campo de busca.</li>
+        <li>Pressione <kbd>Enter</kbd> ou clique no botão <strong>"Pesquisar"</strong>.</li>
+        <li>Observe o resultado detalhado, o botão de <strong>Copiar</strong> e o <strong>Histórico de Buscas</strong> alimentado em tempo real!</li>
+      </ol>
+
+      <label for="test-notes" style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Área de anotações livre para colar resultados:</label>
+      <textarea id="test-notes" class="input-test-area" placeholder="Cole aqui o resultado copiado da extensão para validar..."></textarea>
+    </div>
+  </div>
+</body>
+</html>
